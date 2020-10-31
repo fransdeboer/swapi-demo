@@ -1,0 +1,8 @@
+starships:
+<li *ngFor="let starship of (starships$ | async)">
+  {{ starship.name }} - {{ starship.manufacturer }}
+</li>
+
+<p>
+  <button (click)="loadStarships()">get starships</button>
+</p>
