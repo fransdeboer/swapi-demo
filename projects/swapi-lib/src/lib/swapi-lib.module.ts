@@ -1,12 +1,19 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { SwapiLibComponent } from './swapi-lib.component';
-
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { PeopleEffects } from './effects/people.effects';
+import { PeoplePageComponent } from './people-page/people-page.component';
+import { peopleFeatureKey, reducer } from './reducers/people.reducer';
 
 
 @NgModule({
-  declarations: [SwapiLibComponent],
+  declarations: [PeoplePageComponent],
   imports: [
+    CommonModule,
+    StoreModule.forFeature(peopleFeatureKey, reducer),
+    EffectsModule.forFeature([PeopleEffects])
   ],
-  exports: [SwapiLibComponent]
+  exports: [PeoplePageComponent]
 })
 export class SwapiLibModule { }

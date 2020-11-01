@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { SwapiLibModule } from 'swapi-lib';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { StarshipsEffects } from './effects/starships.effects';
@@ -30,10 +31,8 @@ import { StarshipsPageComponent } from './starships-page/starships-page.componen
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([StarshipsEffects]),
-    // StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    // StoreModule.forFeature(fromStarships.starshipsFeatureKey, fromStarships.reducer),
-    // EffectsModule.forFeature([StarshipsEffects])
+    SwapiLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]

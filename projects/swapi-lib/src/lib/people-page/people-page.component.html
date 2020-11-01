@@ -1,0 +1,8 @@
+people:
+<li *ngFor="let person of (persons$ | async)">
+  {{ person.name }} - {{ person.birth_year }}
+</li>
+
+<p>
+  <button (click)="loadPeople()">get people</button>
+</p>
